@@ -1,0 +1,65 @@
+﻿@model RecipientListViewModel
+@{
+    ViewData["Title"] = "Recipients";
+}
+
+<div class="text-center mb-3">
+    <h1 class="display-4">Recipients</h1>
+    <p class="fst-italic fs-6">Manage Fortnite Notifier recipients, disabled users will not get any emails.</p>
+</div>
+
+<div class="row mt-3">
+    <div class="col-sm-2">
+        <a asp-action="Create" class="btn btn-outline-primary">Add Recipient</a>
+    </div>
+    <div class="col-sm-2">
+        <form asp-action="DisableAll">
+            <button class="btn btn-outline-warning">Disable All</button>
+        </form>
+    </div>
+</div>
+
+<div class="row mt-3">
+    @if (Model.Recipients.Any())
+    {
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Enabled</th>
+                    <th>Added</th>
+                    <th>Updated</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Recipient recipient in Model.Recipients)
+                {
+                    <tr>
+                        <td>@recipient.Name</td>
+                        <td>@recipient.Email</td>
+                        <td>
+                            <span>
+                                <i class="@(recipient.Enabled ? "bi bi-check" : "bi bi-x-circle")"></i>
+                            </span>
+                        </td>
+                        <td>@recipient.InsertTimestamp.ToLocalTime()</td>
+                        <td>@recipient.UpdateTimestamp?.ToLocalTime()</td>
+                        <td>
+                            <a asp-action="Update" asp-route-recipientId="@recipient.RecipientId">
+                                <span>
+                                    <i class="bi bi-pencil"></i>
+                                </span>
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <h3 class="text-center h3">Hi, there are no recipients in the system, please add some.</h3>
+    }
+</div>

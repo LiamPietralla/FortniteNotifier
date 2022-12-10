@@ -1,0 +1,49 @@
+﻿@model VersionViewModel
+@{
+    ViewData["Title"] = "Versions";
+}
+
+<div class="text-center mb-3">
+    <h1 class="display-4">Versions</h1>
+    <p class="fst-italic fs-6">View all versions and reset the version list</p>
+</div>
+
+<div class="row mt-3">
+    <div class="col-sm-2">
+        <form asp-action="DeleteAllVersions">
+            <button class="btn btn-outline-danger">Delete All</button>
+        </form>
+    </div>
+</div>
+
+<div class="row mt-3">
+    @if (Model.Versions.Any())
+    {
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Version</th>
+                    <th>Version Status</th>
+                    <th>Added</th>
+                    <th>Updated</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var version in Model.Versions)
+                {
+                    <tr>
+                        <td>@version.Version</td>
+                        <td>@version.VersionStatus.ToString()</td>
+                        <td>@version.InsertTimestamp.ToLocalTime()</td>
+                        <td>@version.UpdateTimestamp?.ToLocalTime()</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <h3 class="text-center h3">There are no versions in the system.</h3>
+    }
+</div>

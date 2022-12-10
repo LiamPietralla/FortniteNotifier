@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32929.385
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FortniteNotifier", "FortniteNotifier\FortniteNotifier.csproj", "{3E1C23A6-D965-4BEB-A3B2-7E260DE22942}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{31EAE192-A617-4ECF-A0D4-376DFC8016CB}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose.yml = docker-compose.yml
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FortniteNotifier.Admin", "FortniteNotifier.Admin\FortniteNotifier.Admin.csproj", "{592062ED-1091-46F3-B275-C110357461C0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FortniteNotifier.Shared", "FortniteNotifier.Shared\FortniteNotifier.Shared.csproj", "{F7601F8F-A4B9-4A30-9C20-D6208E26599F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Templates", "Templates", "{BB0260EF-50BA-4E20-9059-B937FA6DACC4}"
+	ProjectSection(SolutionItems) = preProject
+		Templates\FortniteNotifier.Admin.env = Templates\FortniteNotifier.Admin.env
+		Templates\FortniteNotifier.Admin.secrets.json = Templates\FortniteNotifier.Admin.secrets.json
+		Templates\FortniteNotifier.env = Templates\FortniteNotifier.env
+		Templates\FortniteNotifier.secrets.json = Templates\FortniteNotifier.secrets.json
+		Templates\shared.env = Templates\shared.env
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3E1C23A6-D965-4BEB-A3B2-7E260DE22942}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E1C23A6-D965-4BEB-A3B2-7E260DE22942}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E1C23A6-D965-4BEB-A3B2-7E260DE22942}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E1C23A6-D965-4BEB-A3B2-7E260DE22942}.Release|Any CPU.Build.0 = Release|Any CPU
+		{592062ED-1091-46F3-B275-C110357461C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{592062ED-1091-46F3-B275-C110357461C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{592062ED-1091-46F3-B275-C110357461C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{592062ED-1091-46F3-B275-C110357461C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7601F8F-A4B9-4A30-9C20-D6208E26599F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7601F8F-A4B9-4A30-9C20-D6208E26599F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7601F8F-A4B9-4A30-9C20-D6208E26599F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7601F8F-A4B9-4A30-9C20-D6208E26599F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{BB0260EF-50BA-4E20-9059-B937FA6DACC4} = {31EAE192-A617-4ECF-A0D4-376DFC8016CB}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DCB1392C-284E-41C1-BBF3-2F0E20C5A87A}
+	EndGlobalSection
+EndGlobal

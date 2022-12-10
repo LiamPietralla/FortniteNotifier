@@ -1,0 +1,25 @@
+version: '3.4'
+
+services:
+  fortnitenotifier:
+    image: ${DOCKER_REGISTRY-}fortnitenotifier
+    restart: always
+    env_file:
+        - FortniteNotifier/.env
+        - shared.env
+    volumes:
+      - fortnitenotifierlogs:/logs
+
+  fortnitenotifier-admin:
+    image: ${DOCKER_REGISTRY-}fortnitenotifier-admin
+    restart: always
+    ports: 
+      - 5000:80
+    env_file:
+        - FortniteNotifier.Admin/.env
+        - shared.env
+    volumes:
+      - fortnitenotifierlogs:/logs
+
+volumes:
+  fortnitenotifierlogs:

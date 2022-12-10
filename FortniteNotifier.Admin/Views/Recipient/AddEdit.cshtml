@@ -1,0 +1,44 @@
+﻿@model RecipientAddEditViewModel
+
+@{
+    string title = Model.RecipientId == null ? "Add Recipient" : "Edit Recipient";
+    ViewData["Title"] = title;
+}
+
+<div class="text-center mb-3">
+    <h1 class="display-4">@title</h1>
+    <p class="fst-italic fs-6">Please fill out the below form to add or edit the recipient</p>
+</div>
+
+<form asp-action="AddEditRecipient" asp-controller="Recipient">
+    <div class="row mt-3">
+        <div class="col-sm-12">
+            <label asp-for="@Model.Name" class="form-label">Name</label>
+            <input asp-for="@Model.Name" class="form-control" placeholder="Name">
+            <span asp-validation-for="@Model.Name" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-sm-12">
+            <label asp-for="@Model.Email" class="form-label">Email</label>
+            <input asp-for="@Model.Email" class="form-control" placeholder="Email">
+            <span asp-validation-for="@Model.Email" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-sm-12 form-check" style="margin-left: 12px">
+            <label asp-for="@Model.Enabled" class="form-check-label">Enabled</label>
+            <input asp-for="@Model.Enabled" type="checkbox" class="form-check-input">
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-sm-4">
+            <button id="submit-button" class="btn btn-outline-success" type="submit">Save Recipient</button>
+        </div>
+    </div>
+    @* Hidden Fields*@
+    @if (Model.RecipientId != null)
+    {
+        <input type="hidden" asp-for="@Model.RecipientId" />
+    }
+</form>

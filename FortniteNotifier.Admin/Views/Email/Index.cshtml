@@ -1,0 +1,62 @@
+﻿@model EmailViewModel
+
+@{
+    ViewData["Title"] = "Test Emails";
+}
+
+<div class="text-center mb-3">
+    <h1 class="display-4">Test Emails</h1>
+    <p class="fst-italic fs-6">Please fill out the below form to test the email functionality</p>
+</div>
+
+<form asp-action="SendTestEmail" asp-controller="Email">
+    <div class="row mt-3">
+        <div class="col-sm-12">
+            <label asp-for="@Model.Subject" class="form-label">Subject</label>
+            <input asp-for="@Model.Subject" class="form-control" placeholder="Subject">
+            <span asp-validation-for="@Model.Subject" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-sm-12">
+            <label asp-for="@Model.Body" class="form-label">Body</label>
+            <textarea asp-for="@Model.Body" class="form-control" placeholder="Body" rows="3"></textarea>
+            <span asp-validation-for="@Model.Body" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-sm-12">
+            <label asp-for="@Model.ToList" class="form-label">ToList</label>
+            <input asp-for="@Model.ToList" class="form-control" placeholder="ToList" />
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-sm-12">
+            <label asp-for="@Model.CCList" class="form-label">CCList</label>
+            <input asp-for="@Model.CCList" class="form-control" placeholder="CCList" />
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-sm-12">
+            <label asp-for="@Model.BCCList" class="form-label">BCCList</label>
+            <input asp-for="@Model.BCCList" class="form-control" placeholder="BCCList" />
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-sm-4">
+            <button id="submit-button" class="btn btn-outline-primary" type="submit">Send Test Email</button>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    <script>
+        // Add a on-click listener to the submit button
+        $("#submit-button").click(function (e) {
+            // Set the button to disabled
+            $("#submit-button").prop("disabled", true);
+            // Set the button text to be "Sending..."
+            $("#submit-button").text("Sending...");
+        });
+    </script>
+}

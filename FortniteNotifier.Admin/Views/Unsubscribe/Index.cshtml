@@ -1,0 +1,36 @@
+﻿@model UnsubscribeViewModel
+@{
+    ViewData["Title"] = "Unsub Requests";
+}
+
+
+<div class="text-center mb-3">
+    <h1 class="display-4">Unsubscribe Requests</h1>
+    <p class="fst-italic fs-6">Latest 10 requests are shown, click <a asp-action="index" asp-route-loadAll="true">here</a> to load all requests</p>
+</div>
+
+<div class="row mt-3">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Email</th>
+                <th>Requested Time</th>
+                <th>Complete</th>
+                <th>Completed Time</th>
+            </tr>
+            @foreach (UnsubscribeRequest request in Model.UnsubscribeRequests)
+            {
+                <tr>
+                    <td>@request.Email</td>
+                    <td>@request.InsertTimestamp.ToLocalTime()</td>
+                    <td>
+                        <span>
+                            <i class="@(request.Completed ? "bi bi-check" : "bi bi-x-circle")"></i>
+                        </span>
+                    </td>
+                    <td>@request.CompleteTimestamp?.ToLocalTime()</td>
+                </tr>
+            }
+        </thead>
+    </table>
+</div>
