@@ -16,13 +16,16 @@ namespace FortniteNotifier.Helpers
             _emailGitHubImagePath = emailGitHubImagePath;
         }
         
-        internal MimeEntity GetNotifyEmailBody(string body)
+        internal MimeEntity GetNotifyEmailBody(string body, string unsubscribeUrl)
         {
             // First we need to load the email template
             string emailTemplate = File.ReadAllText(CrossPlatformHelper.PathCombine(AppContext.BaseDirectory, _emailTemplatePath));
 
             // Update the template with the version
             emailTemplate = emailTemplate.Replace("{{body}}", body);
+
+            // Update the template with the unsubscribe url
+            emailTemplate = emailTemplate.Replace("{{unsubscribeUrl}}", unsubscribeUrl);
 
             // Set the body 
             BodyBuilder bodyBuilder = new()
@@ -41,13 +44,16 @@ namespace FortniteNotifier.Helpers
             return bodyBuilder.ToMessageBody();
         }
 
-        internal MimeEntity GetUnsubscribeEmailBody(string requestUrl)
+        internal MimeEntity GetUnsubscribeEmailBody(string requestUrl, string unsubscribeUrl)
         {
             // First we need to load the email template
             string emailTemplate = File.ReadAllText(CrossPlatformHelper.PathCombine(AppContext.BaseDirectory, _emailTemplatePath));
 
             // Update the template with the version
             emailTemplate = emailTemplate.Replace("{{requestUrl}}", requestUrl);
+
+            // Update the template with the unsubscribe url
+            emailTemplate = emailTemplate.Replace("{{unsubscribeUrl}}", unsubscribeUrl);
 
             // Set the body 
             BodyBuilder bodyBuilder = new()

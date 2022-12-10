@@ -16,13 +16,16 @@ namespace FortniteNotifier.Helpers
             _emailGitHubImagePath = emailGitHubImagePath;
         }
         
-        internal MimeEntity GetVersionCompletedEmailBody(string version)
+        internal MimeEntity GetVersionCompletedEmailBody(string version, string unsubscribeUrl)
         {
             // First we need to load the email template
             string emailTemplate = File.ReadAllText(CrossPlatformHelper.PathCombine(AppContext.BaseDirectory, _emailTemplatePath));
 
             // Update the template with the version
             emailTemplate = emailTemplate.Replace("{{version}}", version);
+
+            // Update the template with the unsubscribe url
+            emailTemplate = emailTemplate.Replace("{{unsubscribeUrl}}", unsubscribeUrl);
 
             // Set the body 
             BodyBuilder bodyBuilder = new()

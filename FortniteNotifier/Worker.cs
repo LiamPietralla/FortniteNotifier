@@ -113,7 +113,7 @@ namespace FortniteNotifier
                                 EmailHelper email = new(_config.EmailTemplatePath, _config.EmailEmailImagePath, _config.EmailGitHubImagePath);
 
                                 // Get the email body
-                                MimeEntity body = email.GetVersionCompletedEmailBody(version);
+                                MimeEntity body = email.GetVersionCompletedEmailBody(version, _config.RequestUnsubscribeUrl);
 
                                 // Create the smtp helper
                                 SMTPHelper smtp = new(_config.SMTPURL, _config.SMTPPort, _config.SMTPUsername, _config.SMTPPassword, _config.SMTPFromName, _config.SMTPFromAddress, Log.Logger);

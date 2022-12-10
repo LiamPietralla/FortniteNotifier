@@ -55,6 +55,9 @@ namespace FortniteNotifier.Admin.Controllers
                 // Get a list of all versions from the database
                 await _unitOfWork.VersionRecordRepository.DeleteAllVersionsAsync();
 
+                // Save the changes
+                await _unitOfWork.SaveAsync();
+
                 // Return the view with data
                 return RedirectToAction("Index");
             }

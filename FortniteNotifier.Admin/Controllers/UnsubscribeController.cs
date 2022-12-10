@@ -98,7 +98,7 @@ namespace FortniteNotifier.Admin.Controllers
                     // Prepare the unsubscription link
                     string unsubscribeLink = $"{_configHelper.UnsubscribeUrl}{unsubRequest.UnsubscribeRequestUrlId}";
 
-                    MimeEntity mineEntityBody = email.GetUnsubscribeEmailBody(unsubscribeLink);
+                    MimeEntity mineEntityBody = email.GetUnsubscribeEmailBody(unsubscribeLink, _configHelper.RequestUnsubscribeUrl);
 
                     // Create the smtp helper
                     SMTPHelper smtp = new(_configHelper.SMTPURL, _configHelper.SMTPPort, _configHelper.SMTPUsername, _configHelper.SMTPPassword, _configHelper.SMTPFromName, _configHelper.SMTPFromAddress);
