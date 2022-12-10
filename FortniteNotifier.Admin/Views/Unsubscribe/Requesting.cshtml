@@ -23,3 +23,15 @@
         </div>
     </div>
 </form>
+
+@section Scripts {
+    <script>
+        // Add a on-click listener to the submit button
+        $("#submit-button").click(function (e) {
+            // Set the button to disabled
+            $("#submit-button").prop("disabled", true);
+            // Set the button text to be "Requesting..."
+            $("#submit-button").text("Requesting...");
+        });
+    </script>
+}
