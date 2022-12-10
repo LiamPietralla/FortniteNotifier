@@ -6,6 +6,7 @@ WORKDIR /app
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /src
 COPY ["FortniteNotifier/FortniteNotifier.csproj", "FortniteNotifier/"]
+COPY ["FortniteNotifier.Shared/FortniteNotifier.Shared.csproj", "FortniteNotifier.Shared/"]
 RUN dotnet restore "FortniteNotifier/FortniteNotifier.csproj"
 COPY . .
 WORKDIR "/src/FortniteNotifier"

@@ -3,10 +3,12 @@
 FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS base
 WORKDIR /app
 EXPOSE 80
+EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /src
 COPY ["FortniteNotifier.Admin/FortniteNotifier.Admin.csproj", "FortniteNotifier.Admin/"]
+COPY ["FortniteNotifier.Shared/FortniteNotifier.Shared.csproj", "FortniteNotifier.Shared/"]
 RUN dotnet restore "FortniteNotifier.Admin/FortniteNotifier.Admin.csproj"
 COPY . .
 WORKDIR "/src/FortniteNotifier.Admin"
