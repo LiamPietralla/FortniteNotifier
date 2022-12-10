@@ -124,6 +124,7 @@ namespace FortniteNotifier.Admin.Controllers
                             recipient.Name = model.Name;
                             recipient.Email = model.Email;
                             recipient.Enabled = model.Enabled;
+                            recipient.UpdateTimestamp = DateTime.UtcNow;
 
                             _unitOfWork.RecipientRepository.UpdateRecipient(recipient);
                         }

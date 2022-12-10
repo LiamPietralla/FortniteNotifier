@@ -54,7 +54,8 @@ namespace FortniteNotifier.Shared.Data.Repositories
             {
                 Name = name,
                 Email = email,
-                Enabled = enabled
+                Enabled = enabled,
+                InsertTimestamp = DateTime.UtcNow
             };
 
             // Insert the recipient into the table

@@ -151,6 +151,7 @@ namespace FortniteNotifier.Admin.Controllers
                     {
                         // Update the recipient
                         recipient.Enabled = false;
+                        recipient.UpdateTimestamp = DateTime.UtcNow;
                         _unitOfWork.RecipientRepository.UpdateRecipient(recipient);
 
                         // Update the request
