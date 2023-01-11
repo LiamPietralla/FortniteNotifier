@@ -3,6 +3,8 @@
   "name": "fortnite-notifer.admin",
   "private": true,
   "dependencies": {
+    "bootstrap": "^5.3.0-alpha1",
+    "bootstrap-icons": "^1.10.3",
     "jquery": "^3.6.3",
     "jquery-validation": "^1.19.5",
     "jquery-validation-unobtrusive": "^4.0.0"

@@ -14,11 +14,21 @@ const config = {
             'node_modules/jquery/dist/jquery.min.js',
             'node_modules/jquery-validation/dist/jquery.validate.min.js',
             'node_modules/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js',
+            'node_modules/bootstrap/dist/js/bootstrap.bundle.min.js',
+            'wwwroot/js/site.js'
+        ],
+        css: [
+            'node_modules/bootstrap/dist/css/bootstrap.min.css',
+            'node_modules/bootstrap-icons/font/bootstrap-icons.css',
+            'wwwroot/css/site.css'
         ]
     },
     dest: {
         js: [
             'wwwroot/dist/js'
+        ],
+        css: [
+            'wwwroot/dist/css'
         ]
     }
 };
@@ -32,4 +42,13 @@ function jsBundleAndCopy() {
         .pipe(dest(config.dest.js));
 }
 
-exports.default = series(jsBundleAndCopy);
+/****************************/
+/* CSS Bundling and Copying */
+/**************************/
+
+function cssBundleAndCopy() {
+    return src(config.src.css)
+        .pipe(dest(config.dest.css));
+}
+
+exports.default = series(jsBundleAndCopy, cssBundleAndCopy);
